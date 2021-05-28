@@ -1,16 +1,14 @@
 # exploring_riverpod
 
-A new Flutter project.
+A new Flutter project Counter App 
 
-## Getting Started
+## Kishor Kc
 
-This project is a starting point for a Flutter application.
+I am exploring Riverpod and build a Counter app.<br>
+Riverpod is a State Management created by the Remi Rousellete.
+Check out the official website of [Riverpod](https://riverpod.dev/)
 
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
-
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+Output of the Counter App<br>
+<p>
+<img src="https://user-images.githubusercontent.com/73419211/120023554-af1db680-c00d-11eb-9bf9-f9145aae2228.jpg" height="500" width="280">
+</p>
