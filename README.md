@@ -1,4 +1,4 @@
-# exploring_riverpod_day_2
+# exploring_riverpod_day_3
 
 A new Flutter project Switch Widget Flutter App through Riverpod
 
