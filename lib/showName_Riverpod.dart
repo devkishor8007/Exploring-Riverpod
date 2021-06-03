@@ -1,17 +1,18 @@
-import 'package:flutter/material.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 final appNameRiverpod = Provider<String>((ref) => "Exploring Riverpod");
-final whatWidgetRivepod = Provider<String>((ref) => "Slider Widget");
+final widgetNameRiverpod = Provider<String>((ref) => "TextField Widget");
 final hopeRiverpod = Provider<String>(
     (ref) => "Hope You'll Understand This! \nKeep Learning and Stay Safe");
 
-class SliderWidget extends ChangeNotifier {
-  double _value = 0.0;
-  double get value => _value;
+class TextFormWidget extends ChangeNotifier {
+  String _text = "Kishor Kc";
 
-  onchanged(val) {
-    _value = val;
+  String get text => _text;
+
+  onChangedVlue(String val) {
+    _text = val;
     notifyListeners();
   }
 }
