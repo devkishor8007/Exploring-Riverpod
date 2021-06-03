@@ -1,4 +1,4 @@
-# exploring_riverpod
+# exploring_riverpod_day1
 
 A new Flutter project Counter App 
 
