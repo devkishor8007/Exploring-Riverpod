@@ -1,4 +1,4 @@
-import 'package:exploring_riverpod/page/showName_page.dart';
+import 'package:exploring_riverpod/page/bottomNavigation_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
@@ -10,12 +10,12 @@ class Day4 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: "Day 5",
+      title: "Day 6",
       theme: ThemeData(
-        canvasColor: Colors.tealAccent.withOpacity(0.3),
+        canvasColor: Colors.purpleAccent.withOpacity(0.3),
       ),
       debugShowCheckedModeBanner: false,
-      home: ShowNamePage(),
+      home: BottomNavigationPage(),
     );
   }
 }
