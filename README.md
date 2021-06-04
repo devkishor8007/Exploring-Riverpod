@@ -4,8 +4,8 @@ A new Flutter project BottomNavigationBar Widget App
 
 ## Kishor Kc
 
-I am exploring Riverpod and build a BottomNavigationBar Widget Flutter app.<br>
-Riverpod is a State Management created by the Remi Rousellete.
+I am exploring ```Riverpod``` and build a BottomNavigationBar Widget Flutter app.<br>
+```Riverpod``` is a ```State Management``` created by the ```Remi Rousellete```<br>
 Check out the official website of [Riverpod](https://riverpod.dev/)
 
 Output of the BottomNavigationBar Flutter App<br>
