@@ -1,21 +1,23 @@
-import 'package:exploring_riverpod/page/bottomNavigation_page.dart';
+import 'package:exploring_riverpod/Screens/homeScreen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 void main() {
-  runApp(ProviderScope(child: Day4()));
+  runApp(ProviderScope(child: Day7()));
 }
 
-class Day4 extends StatelessWidget {
+final darkThemeRiverpod = StateProvider<bool>((ref) => false);
+
+class Day7 extends ConsumerWidget {
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, ScopedReader watch) {
+    final watchDarkThemeRiverpod = watch(darkThemeRiverpod);
     return MaterialApp(
-      title: "Day 6",
-      theme: ThemeData(
-        canvasColor: Colors.purpleAccent.withOpacity(0.3),
-      ),
+      title: "Day 7",
+      theme:
+          watchDarkThemeRiverpod.state ? ThemeData.dark() : ThemeData.light(),
       debugShowCheckedModeBanner: false,
-      home: BottomNavigationPage(),
+      home: HomeScreen(),
     );
   }
 }
