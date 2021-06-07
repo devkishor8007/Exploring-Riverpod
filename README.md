@@ -18,7 +18,7 @@ Check out the official website of [Riverpod](https://riverpod.dev/)
 </p>
 <br>
 
-### Turn on Light Theme 
+### Turn off Dark Theme 
 <p>
 <img src="https://user-images.githubusercontent.com/73419211/120935602-50e68700-c723-11eb-9df7-351867a2d4c6.jpg" height="500" width="260">
 <img src="https://user-images.githubusercontent.com/73419211/120935473-aa9a8180-c722-11eb-80a8-cfc79f03fdca.jpg" height="500" width="260">
