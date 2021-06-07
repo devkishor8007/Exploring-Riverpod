@@ -1,21 +1,39 @@
-import 'package:exploring_riverpod/main.dart';
 import 'package:exploring_riverpod/riverpod_apply.dart';
 import 'package:exploring_riverpod/route.dart';
 import 'package:exploring_riverpod/utilities.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
+final callChangeAllFont = ChangeNotifierProvider<ChangeAllFont>(
+  (ref) => ChangeAllFont(),
+);
+
 class SettingScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Consumer(
       builder: (context, watch, child) {
-        final watchingSettingDarkThemeRiverpod = watch(darkThemeRiverpod);
+        final watchcallChangeAllFont = watch(callChangeAllFont);
+
         return Scaffold(
-          appBar: appbar(watchingSettingDarkThemeRiverpod, context),
+          appBar: appBar(context),
           body: Column(
             children: [
-              darkThemeSwitch(watchingSettingDarkThemeRiverpod, context),
+              Text(
+                "Text Size is " +
+                    watchcallChangeAllFont.fontSize.toStringAsFixed(2),
+                style: buildTextStyle(
+                  context,
+                  color: Colors.white,
+                ),
+              ),
+              Slider(
+                  max: 100.0,
+                  min: 15,
+                  value: watchcallChangeAllFont.fontSize,
+                  onChanged: (val) {
+                    context.read(callChangeAllFont).increaseSize(val);
+                  }),
             ],
           ),
         );
@@ -23,27 +41,12 @@ class SettingScreen extends StatelessWidget {
     );
   }
 
-  Widget darkThemeSwitch(StateController<bool> watchingSettingDarkThemeRiverpod,
-      BuildContext context) {
-    return SwitchListTile(
-        title: Text('Dark Theme'),
-        value: watchingSettingDarkThemeRiverpod.state,
-        onChanged: (changeValue) {
-          context.read(darkThemeRiverpod).state =
-              !context.read(darkThemeRiverpod).state;
-        });
-  }
-
-  Widget appbar(StateController<bool> watchingSettingDarkThemeRiverpod,
-      BuildContext context) {
+  Widget appBar(BuildContext context) {
     return AppBar(
       automaticallyImplyLeading: false,
       leading: IconButton(
         icon: Icon(
           Icons.navigate_before,
-          color: watchingSettingDarkThemeRiverpod.state
-              ? Colors.white
-              : Colors.black,
           size: Theme.of(context).textTheme.headline4.fontSize,
         ),
         onPressed: () {
@@ -56,9 +59,6 @@ class SettingScreen extends StatelessWidget {
         context.read(appsettingRiverpod),
         style: buildTextStyle(
           context,
-          color: watchingSettingDarkThemeRiverpod.state
-              ? Colors.white
-              : Colors.black,
         ),
       ),
     );

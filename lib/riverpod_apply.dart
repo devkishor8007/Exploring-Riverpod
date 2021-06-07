@@ -1,8 +1,19 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 final appNameRiverpod = Provider<String>((ref) => "Exploring Riverpod");
 final appsettingRiverpod = Provider<String>((ref) => "Setting");
-final widgetNameRiverpod =
-    Provider<String>((ref) => "Dark Theme using Switch Widget");
+final widgetNameRiverpod = Provider<String>((ref) => "Text Changer Font-Size");
 final hopeRiverpod = Provider<String>(
     (ref) => "Hope You'll Understand This! \nKeep Learning and Stay Safe");
+
+class ChangeAllFont extends ChangeNotifier {
+  double _fontSize = 15;
+
+  double get fontSize => _fontSize;
+
+  increaseSize(val) {
+    _fontSize = val;
+    notifyListeners();
+  }
+}

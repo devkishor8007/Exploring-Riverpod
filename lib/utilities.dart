@@ -1,14 +1,7 @@
 import 'package:flutter/material.dart';
 
-TextStyle buildTextStyle(
-  BuildContext context, {
-  double size,
-  Color color,
-  FontWeight fontWeight,
-}) {
+TextStyle buildTextStyle(BuildContext context, {Color color}) {
   return TextStyle(
-    color: color ?? Colors.white,
-    fontWeight: fontWeight ?? FontWeight.normal,
-    fontSize: size ?? Theme.of(context).textTheme.headline5.fontSize,
+    color: color,
   );
 }
