@@ -75,3 +75,29 @@ Output of the Change Theme Flutter App
 <img src="https://user-images.githubusercontent.com/73419211/120935473-aa9a8180-c722-11eb-80a8-cfc79f03fdca.jpg" height="500" width="280">
 <img src="https://user-images.githubusercontent.com/73419211/120935475-abcbae80-c722-11eb-8cc4-d8f83e35d1b4.jpg" height="500" width="280">
 </p>
+
+## Day 8
+You can get project Text Changer Font-Size App Flutter App<br>
+Output of the Text Changer Font-Size App
+
+
+### With default [fontSize = 15] Change - Text Changer Font-Size Flutter App<br>
+<p>
+<img src="https://user-images.githubusercontent.com/73419211/121070783-de42dd80-c7ee-11eb-8c19-4f8ecd3d7ea1.jpg" height="500" width="280">
+<img src="https://user-images.githubusercontent.com/73419211/121070792-e00ca100-c7ee-11eb-83cf-5de27f119f17.jpg" height="500" width="280">
+</p>
+
+### With Change [fontSize = 37.33] - Text Changer Font-Size Flutter App<br>
+<p>
+<img src="https://user-images.githubusercontent.com/73419211/121070896-fa467f00-c7ee-11eb-9018-f75ae752f38a.jpg" height="500" width="280">
+<img src="https://user-images.githubusercontent.com/73419211/121070793-e0a53780-c7ee-11eb-8fe6-de9d3b43f8fa.jpg" height="500" width="280">
+</p>
+
+## Day 9 
+You can get project Drop-Down Button Widget Flutter App<br>
+Output of the Drop-Down Button Widget Flutter App
+<p>
+<img src="https://user-images.githubusercontent.com/73419211/121232584-7b664a80-c8b1-11eb-97a8-ed297fff7422.jpg" height="500" width="280">
+<img src="https://user-images.githubusercontent.com/73419211/121232596-7dc8a480-c8b1-11eb-8614-ad30128eab2b.jpg" height="500" width="280">
+<img src="https://user-images.githubusercontent.com/73419211/121232600-7e613b00-c8b1-11eb-841d-7bd27ecb55de.jpg" height="500" width="280">
+</p>
