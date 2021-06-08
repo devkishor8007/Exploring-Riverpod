@@ -6,8 +6,14 @@ final widgetNameRiverpod = Provider<String>((ref) => "Drop-Down Button Widget");
 final hopeRiverpod = Provider<String>(
     (ref) => "Hope You'll Understand This! \nKeep Learning and Stay Safe");
 
-class DropdownButtonRiverpod extends ChangeNotifier {
-  List<String> _countryNameList = ["Nepal", "USA", "Japan", "China", "India"];
+class DropdownButtonsRiverpod extends ChangeNotifier {
+  List<String> _countryNameList = [
+    "Nepal",
+    "USA",
+    "Japan",
+    "China",
+    "India",
+  ];
   String _currentCountryName = "Nepal";
 
   List<String> get countryNameList => _countryNameList;

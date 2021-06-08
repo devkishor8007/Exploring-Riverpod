@@ -3,14 +3,14 @@ import 'package:exploring_riverpod/utilities.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-final callDropdownButton = ChangeNotifierProvider<DropdownButtonRiverpod>(
-    (ref) => DropdownButtonRiverpod());
+final calDropdownButton = ChangeNotifierProvider<DropdownButtonsRiverpod>(
+    (ref) => DropdownButtonsRiverpod());
 
-class DropDownButtonScreen extends ConsumerWidget {
+class DropDownButtonScreens extends ConsumerWidget {
   @override
   Widget build(BuildContext context, ScopedReader watch) {
     final size = MediaQuery.of(context).size;
-    var watchcallDropdownButton = watch(callDropdownButton);
+    var watchcallDropdownButton = watch(calDropdownButton);
     return SafeArea(
       child: Scaffold(
         appBar: buildAppBar(context),
@@ -34,7 +34,7 @@ class DropDownButtonScreen extends ConsumerWidget {
                 dropdownColor: Colors.black,
                 onChanged: (newChanged) {
                   context
-                      .read(callDropdownButton)
+                      .read(calDropdownButton)
                       .onChangeCountryName(newChanged);
                 },
                 items: watchcallDropdownButton.countryNameList
@@ -56,6 +56,9 @@ class DropDownButtonScreen extends ConsumerWidget {
                 style: TextStyle(
                   color: Colors.white,
                 ),
+              ),
+              SizedBox(
+                height: size.height * 0.1,
               ),
             ],
           ),

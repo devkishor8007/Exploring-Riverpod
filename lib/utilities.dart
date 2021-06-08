@@ -7,6 +7,6 @@ TextStyle buildTextStyle(
 }) {
   return TextStyle(
     color: color,
-    fontSize: size ?? 16,
+    fontSize: size ?? 17,
   );
 }
