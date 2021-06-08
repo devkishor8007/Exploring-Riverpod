@@ -2,18 +2,19 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 final appNameRiverpod = Provider<String>((ref) => "Exploring Riverpod");
-final appsettingRiverpod = Provider<String>((ref) => "Setting");
-final widgetNameRiverpod = Provider<String>((ref) => "Text Changer Font-Size");
+final widgetNameRiverpod = Provider<String>((ref) => "Drop-Down Button Widget");
 final hopeRiverpod = Provider<String>(
     (ref) => "Hope You'll Understand This! \nKeep Learning and Stay Safe");
 
-class ChangeAllFont extends ChangeNotifier {
-  double _fontSize = 15;
+class DropdownButtonRiverpod extends ChangeNotifier {
+  List<String> _countryNameList = ["Nepal", "USA", "Japan", "China", "India"];
+  String _currentCountryName = "Nepal";
 
-  double get fontSize => _fontSize;
+  List<String> get countryNameList => _countryNameList;
+  String get currentCountryName => _currentCountryName;
 
-  increaseSize(val) {
-    _fontSize = val;
+  onChangeCountryName(newVal) {
+    _currentCountryName = newVal;
     notifyListeners();
   }
 }

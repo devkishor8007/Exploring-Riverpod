@@ -25,7 +25,6 @@ dependencies:
     sdk: flutter
   cached_network_image: ^3.0.0
   cupertino_icons: ^1.0.2
-  flutter_lorem: ^2.0.0
   flutter_riverpod: ^0.14.0+3
 
 dev_dependencies:
