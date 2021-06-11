@@ -1,21 +1,22 @@
-import 'package:exploring_riverpod/Screens/dropDownButtonScreen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
+import 'screen/homeScreen.dart';
+
 void main() {
-  runApp(ProviderScope(child: Day9()));
+  runApp(ProviderScope(child: Day10()));
 }
 
-class Day9 extends ConsumerWidget {
+class Day10 extends ConsumerWidget {
   @override
   Widget build(BuildContext context, ScopedReader watch) {
     return MaterialApp(
-      title: "Day 9",
+      title: "Day 10",
       theme: ThemeData(
-        scaffoldBackgroundColor: Colors.redAccent.withOpacity(0.2),
+        scaffoldBackgroundColor: Colors.deepOrangeAccent.withOpacity(0.2),
       ),
       debugShowCheckedModeBanner: false,
-      home: DropDownButtonScreens(),
+      home: HomeScreen(),
     );
   }
 }
