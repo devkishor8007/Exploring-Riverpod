@@ -58,7 +58,7 @@ class DataTypePage extends ConsumerWidget {
                     SizedBox(
                       height: mq.height * 0.01,
                     ),
-                    listViewSampleData(mq, listImpl, context)
+                    listViewSampleData(mq, listImpl, context),
                   ],
                 ),
                 SizedBox(
