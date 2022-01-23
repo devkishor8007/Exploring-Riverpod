@@ -8,13 +8,14 @@ final appCounterRiverpod = ChangeNotifierProvider<CounterRiverpod>(
 
 class CounterPage extends ConsumerWidget {
   @override
-  Widget build(BuildContext context, ScopedReader watch) {
+  Widget build(BuildContext context, WidgetRef ref) {
     final mq = MediaQuery.of(context).size;
-    var applyCount = watch(appCounterRiverpod);
+    var applyCount = ref.watch(appCounterRiverpod);
+    final appName = ref.watch(appNameRiverpod);
     return SafeArea(
       child: Scaffold(
-        appBar: appBar(context),
-        floatingActionButton: floatingActionButtons(context, mq),
+        appBar: appBar(appName, context),
+        floatingActionButton: rowfloatingActionButton(applyCount, mq),
         body: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.center,
@@ -44,13 +45,26 @@ class CounterPage extends ConsumerWidget {
     );
   }
 
-  Widget floatingActionButtons(BuildContext context, Size mq) {
+  AppBar appBar(String appName, BuildContext context) {
+    return AppBar(
+      backgroundColor: Colors.transparent,
+      elevation: 0,
+      centerTitle: true,
+      title: Text(
+        '$appName',
+        style:
+            Theme.of(context).textTheme.headline5.copyWith(color: Colors.white),
+      ),
+    );
+  }
+
+  Widget rowfloatingActionButton(CounterRiverpod applyCount, Size mq) {
     return Row(
       mainAxisAlignment: MainAxisAlignment.end,
       children: [
         FloatingActionButton(
           onPressed: () {
-            context.read(appCounterRiverpod).add();
+            applyCount.add();
           },
           child: Icon(Icons.add),
         ),
@@ -59,24 +73,11 @@ class CounterPage extends ConsumerWidget {
         ),
         FloatingActionButton(
           onPressed: () {
-            context.read(appCounterRiverpod).subtract();
+            applyCount.subtract();
           },
           child: Icon(Icons.remove),
         ),
       ],
-    );
-  }
-
-  Widget appBar(BuildContext context) {
-    return AppBar(
-      backgroundColor: Colors.transparent,
-      elevation: 0,
-      centerTitle: true,
-      title: Text(
-        context.read(appNameRiverpod),
-        style:
-            Theme.of(context).textTheme.headline5.copyWith(color: Colors.white),
-      ),
     );
   }
 }
