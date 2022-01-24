@@ -11,13 +11,18 @@ final multipleSwitchRiverpod = ChangeNotifierProvider<MultipleSwitchWidget>(
 
 class SwitchHomePage extends ConsumerWidget {
   @override
-  Widget build(BuildContext context, ScopedReader watch) {
+  Widget build(BuildContext context, WidgetRef ref) {
     final mq = MediaQuery.of(context).size;
-    var switchImplement = watch(switchRiverpod);
-    final multipleswitchImplement = watch(multipleSwitchRiverpod);
+    var switchImplement = ref.watch(switchRiverpod);
+    final multipleswitchImplement = ref.watch(multipleSwitchRiverpod);
+
+    final singleswitch = ref.watch(singleswitchName);
+    final multipleswitch = ref.watch(multipleswitchName);
+    final hopeRiverpodText = ref.watch(hopeRiverpod);
+    final appname = ref.watch(appNameRiverpod);
     return SafeArea(
       child: Scaffold(
-        appBar: appBar(context),
+        appBar: appBar(context, appname),
         body: SingleChildScrollView(
           child: Padding(
             padding: EdgeInsets.symmetric(
@@ -35,7 +40,7 @@ class SwitchHomePage extends ConsumerWidget {
                           top: mq.height * 0.01,
                         ),
                         child: Text(
-                          context.read(singleswitchName),
+                          singleswitch,
                           style: TextStyle(
                             fontSize:
                                 Theme.of(context).textTheme.headline5.fontSize,
@@ -60,7 +65,7 @@ class SwitchHomePage extends ConsumerWidget {
                           top: mq.height * 0.01,
                         ),
                         child: Text(
-                          context.read(multipleswitchName),
+                          multipleswitch,
                           style: TextStyle(
                             fontWeight: FontWeight.bold,
                             fontSize:
@@ -73,9 +78,7 @@ class SwitchHomePage extends ConsumerWidget {
                         textSwitch: 'First Switch',
                         value: multipleswitchImplement.value1,
                         onChanged: (vax) {
-                          context
-                              .read(multipleSwitchRiverpod)
-                              .onChangedMultipleOne(vax);
+                          multipleswitchImplement.onChangedMultipleOne(vax);
                         },
                       ),
                       multipleSwitchListTile(
@@ -83,9 +86,7 @@ class SwitchHomePage extends ConsumerWidget {
                         textSwitch: 'Second Switch',
                         value: multipleswitchImplement.value2,
                         onChanged: (vax) {
-                          context
-                              .read(multipleSwitchRiverpod)
-                              .onChangedMultipleTwo(vax);
+                          multipleswitchImplement.onChangedMultipleTwo(vax);
                         },
                       ),
                       multipleSwitchListTile(
@@ -93,9 +94,7 @@ class SwitchHomePage extends ConsumerWidget {
                         textSwitch: 'Third Switch',
                         value: multipleswitchImplement.value3,
                         onChanged: (vax) {
-                          context
-                              .read(multipleSwitchRiverpod)
-                              .onChangedMultipleThree(vax);
+                          multipleswitchImplement.onChangedMultipleThree(vax);
                         },
                       ),
                     ],
@@ -105,7 +104,7 @@ class SwitchHomePage extends ConsumerWidget {
                   height: mq.height * 0.04,
                 ),
                 Text(
-                  context.read(hopeRiverpod),
+                  hopeRiverpodText,
                   style: Theme.of(context)
                       .textTheme
                       .caption
@@ -128,7 +127,7 @@ class SwitchHomePage extends ConsumerWidget {
         activeColor: Colors.redAccent,
         value: switchImplement.value,
         onChanged: (change) {
-          context.read(switchRiverpod).onChanged(change);
+          switchImplement.onChanged(change);
         });
   }
 
@@ -144,13 +143,13 @@ class SwitchHomePage extends ConsumerWidget {
     );
   }
 
-  Widget appBar(BuildContext context) {
+  Widget appBar(BuildContext context, String appname) {
     return AppBar(
       backgroundColor: Colors.transparent,
       elevation: 0,
       centerTitle: true,
       title: Text(
-        context.read(appNameRiverpod),
+        appname,
         style:
             Theme.of(context).textTheme.headline5.copyWith(color: Colors.white),
       ),
