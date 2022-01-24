@@ -1,4 +1,5 @@
 import 'package:exploring_riverpod/showName_Riverpod.dart';
+import 'package:exploring_riverpod/utilis.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
@@ -10,18 +11,15 @@ class ShowNamePage extends ConsumerWidget {
   TextEditingController _name = TextEditingController();
 
   @override
-  Widget build(BuildContext context, ScopedReader watch) {
+  Widget build(BuildContext context, WidgetRef ref) {
     final size = MediaQuery.of(context).size;
-    final textImplementRiverpod = watch(textFieldChangeNotifier);
+    final textImplementRiverpod = ref.watch(textFieldChangeNotifier);
+
+    final whatWidgetImpl = ref.watch(widgetNameRiverpod);
+    final hopeRiverpodText = ref.watch(hopeRiverpod);
+    final appname = ref.watch(appNameRiverpod);
     return Scaffold(
-      appBar: AppBar(
-        centerTitle: true,
-        elevation: 0,
-        backgroundColor: Colors.transparent,
-        title: Text(
-          context.read(appNameRiverpod),
-        ),
-      ),
+      appBar: appbar(appname),
       body: Padding(
         padding: EdgeInsets.symmetric(
           horizontal: size.width * 0.04,
@@ -31,7 +29,7 @@ class ShowNamePage extends ConsumerWidget {
           children: [
             Center(
               child: Text(
-                context.read(widgetNameRiverpod),
+                whatWidgetImpl,
                 style: TextStyle(
                   color: Colors.white,
                 ),
@@ -46,7 +44,7 @@ class ShowNamePage extends ConsumerWidget {
                 color: Colors.white,
               ),
               onSubmitted: (String val) {
-                context.read(textFieldChangeNotifier).onChangedVlue(val);
+                textImplementRiverpod.onChangedVlue(val);
                 _name.clear();
               },
               decoration: InputDecoration(
@@ -54,14 +52,8 @@ class ShowNamePage extends ConsumerWidget {
                 hintStyle: TextStyle(
                   color: Colors.grey,
                 ),
-                enabledBorder: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(16),
-                  borderSide: BorderSide.none,
-                ),
-                focusedBorder: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(16),
-                  borderSide: BorderSide.none,
-                ),
+                enabledBorder: makeOutline(),
+                focusedBorder: makeOutline(),
                 fillColor: Colors.grey.withOpacity(0.3),
                 filled: true,
               ),
@@ -90,13 +82,24 @@ class ShowNamePage extends ConsumerWidget {
               height: size.height * 0.3,
             ),
             Text(
-              context.read(hopeRiverpod),
+              hopeRiverpodText,
               style: TextStyle(
                 color: Colors.white,
               ),
             ),
           ],
         ),
+      ),
+    );
+  }
+
+  AppBar appbar(String appname) {
+    return AppBar(
+      centerTitle: true,
+      elevation: 0,
+      backgroundColor: Colors.transparent,
+      title: Text(
+        appname,
       ),
     );
   }
