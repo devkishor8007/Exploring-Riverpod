@@ -7,12 +7,16 @@ final sliderRiverpod =
 
 class SliderHomePage extends ConsumerWidget {
   @override
-  Widget build(BuildContext context, ScopedReader watch) {
+  Widget build(BuildContext context, WidgetRef ref) {
     final mq = MediaQuery.of(context).size;
-    var sliderImplement = watch(sliderRiverpod);
+    var sliderImplement = ref.watch(sliderRiverpod);
+
+    final whatWidgetImpl = ref.watch(whatWidgetRivepod);
+    final hopeRiverpodText = ref.watch(hopeRiverpod);
+    final appname = ref.watch(appNameRiverpod);
     return SafeArea(
       child: Scaffold(
-        appBar: appBar(context),
+        appBar: appBar(context, appname),
         body: SingleChildScrollView(
           child: Padding(
             padding: EdgeInsets.symmetric(
@@ -24,7 +28,7 @@ class SliderHomePage extends ConsumerWidget {
               children: [
                 makeTextHelp(
                   context,
-                  context.read(whatWidgetRivepod),
+                  whatWidgetImpl,
                   size: Theme.of(context).textTheme.headline6.fontSize,
                 ),
                 Padding(
@@ -43,7 +47,7 @@ class SliderHomePage extends ConsumerWidget {
                 ),
                 makeTextHelp(
                   context,
-                  context.read(hopeRiverpod),
+                  hopeRiverpodText,
                 ),
               ],
             ),
@@ -59,7 +63,7 @@ class SliderHomePage extends ConsumerWidget {
       max: 10,
       value: sliderImplement.value,
       onChanged: (v) {
-        context.read(sliderRiverpod).onchanged(v);
+        sliderImplement.onchanged(v);
       },
     );
   }
@@ -74,13 +78,13 @@ class SliderHomePage extends ConsumerWidget {
     );
   }
 
-  Widget appBar(BuildContext context) {
+  Widget appBar(BuildContext context, String appname) {
     return AppBar(
       backgroundColor: Colors.transparent,
       elevation: 0,
       centerTitle: true,
       title: Text(
-        context.read(appNameRiverpod),
+        appname,
         style:
             Theme.of(context).textTheme.headline5.copyWith(color: Colors.white),
       ),
