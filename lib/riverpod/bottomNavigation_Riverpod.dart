@@ -18,6 +18,10 @@ class TextFormWidget extends ChangeNotifier {
   }
 }
 
+final callingBottomNavigation =
+    ChangeNotifierProvider<BottomNavigationBarWidget>(
+        (ref) => BottomNavigationBarWidget());
+
 class BottomNavigationBarWidget extends ChangeNotifier {
   int _currentValue = 0;
 

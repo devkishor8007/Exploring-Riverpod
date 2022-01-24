@@ -6,11 +6,6 @@ class NotificationPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Center(
-      child: Text(
-        "Welcome to Notification Page",
-        style: buildTextStyle(context),
-      ),
-    );
+    return makeCenter(context, "Welcome to Notification Page");
   }
 }

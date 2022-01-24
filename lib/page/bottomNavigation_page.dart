@@ -1,26 +1,12 @@
-import 'package:exploring_riverpod/page/dashboardPage.dart';
-import 'package:exploring_riverpod/page/notificationPage.dart';
-import 'package:exploring_riverpod/page/profilePage.dart';
-import 'package:exploring_riverpod/bottomNavigation_Riverpod.dart';
+import 'package:exploring_riverpod/riverpod/bottomNavigation_Riverpod.dart';
+import 'package:exploring_riverpod/utilities.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'homePage.dart';
 
-final callingBottomNavigation =
-    ChangeNotifierProvider<BottomNavigationBarWidget>(
-        (ref) => BottomNavigationBarWidget());
-
-// ignore: must_be_immutable
 class BottomNavigationPage extends ConsumerWidget {
-  List<Widget> getOpenWidget = [
-    HomePage(),
-    ProfilePage(),
-    NotificationPage(),
-    DashBoardPage(),
-  ];
   @override
-  Widget build(BuildContext context, ScopedReader watch) {
-    final implementBottomNavigation = watch(callingBottomNavigation);
+  Widget build(BuildContext context, WidgetRef ref) {
+    final implementBottomNavigation = ref.watch(callingBottomNavigation);
     return Scaffold(
       bottomNavigationBar:
           makeBottomNavigationBar(implementBottomNavigation, context),
@@ -38,26 +24,9 @@ class BottomNavigationPage extends ConsumerWidget {
       showUnselectedLabels: false,
       currentIndex: implementBottomNavigation.currentValue,
       onTap: (val) {
-        context.read(callingBottomNavigation).changeValue(val);
+        implementBottomNavigation.changeValue(val);
       },
-      items: [
-        BottomNavigationBarItem(
-          label: "Home",
-          icon: Icon(Icons.home_sharp),
-        ),
-        BottomNavigationBarItem(
-          label: "Profile",
-          icon: Icon(Icons.person),
-        ),
-        BottomNavigationBarItem(
-          label: "Notification",
-          icon: Icon(Icons.notifications_none_rounded),
-        ),
-        BottomNavigationBarItem(
-          label: "Dashboard",
-          icon: Icon(Icons.dashboard),
-        ),
-      ],
+      items: items,
     );
   }
 }

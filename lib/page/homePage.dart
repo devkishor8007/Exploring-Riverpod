@@ -7,15 +7,19 @@ class HomePage extends ConsumerWidget {
   const HomePage({Key key}) : super(key: key);
 
   @override
-  Widget build(BuildContext context, ScopedReader watch) {
+  Widget build(BuildContext context, WidgetRef ref) {
     final size = MediaQuery.of(context).size;
+
+    final whatWidgetImpl = ref.watch(widgetNameRiverpod);
+    final hopeRiverpodText = ref.watch(hopeRiverpod);
+    final appname = ref.watch(appNameRiverpod);
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
         elevation: 0,
         backgroundColor: Colors.transparent,
         title: Text(
-          context.read(appNameRiverpod),
+          appname,
         ),
       ),
       body: Padding(
@@ -26,7 +30,7 @@ class HomePage extends ConsumerWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
-              context.read(widgetNameRiverpod),
+              whatWidgetImpl,
               style: buildTextStyle(context),
             ),
             SizedBox(
@@ -43,7 +47,7 @@ class HomePage extends ConsumerWidget {
               height: size.height * 0.2,
             ),
             Text(
-              context.read(hopeRiverpod),
+              hopeRiverpodText,
               style: buildTextStyle(
                 context,
                 size: Theme.of(context).textTheme.bodyText1.fontSize,

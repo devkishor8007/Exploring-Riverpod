@@ -6,11 +6,6 @@ class DashBoardPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Center(
-      child: Text(
-        "Welcome to DashBoard Page",
-        style: buildTextStyle(context),
-      ),
-    );
+    return makeCenter(context, "Welcome to Dashboard Page");
   }
 }
