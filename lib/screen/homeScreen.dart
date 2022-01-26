@@ -10,10 +10,13 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Consumer(
-      builder: (context, watch, child) {
-        final apiServiceImplement = watch(dataServicesRiverpod);
+      builder: (context, ref, child) {
+        final apiServiceImplement = ref.watch(dataServicesRiverpod);
+
+        final whatWidgetImpl = ref.watch(widgetNameRiverpod);
+        final appname = ref.watch(appNameRiverpod);
         return Scaffold(
-          appBar: makeAppBar(context),
+          appBar: makeAppBar(appname, context),
           body: apiServiceImplement.when(
             data: (data) => Padding(
               padding: EdgeInsets.symmetric(
@@ -23,7 +26,7 @@ class HomeScreen extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    context.read(widgetNameRiverpod),
+                    whatWidgetImpl,
                     style: buildTextStyle(
                       context,
                       color: Colors.white,
@@ -39,12 +42,12 @@ class HomeScreen extends StatelessWidget {
                       itemBuilder: (_, index) {
                         return ListTile(
                           title: Text(
-                            data[index].setup,
+                            data[index].name,
                             style: buildTextStyle(context, color: Colors.white),
                           ),
                           subtitle: Text(
-                            data[index].punchline,
-                            style: buildTextStyle(context, color: Colors.white),
+                            data[index].email,
+                            style: buildTextStyle(context, color: Colors.grey),
                           ),
                           leading: Text(
                             data[index].id.toString() + "\nLikes",
@@ -65,11 +68,9 @@ class HomeScreen extends StatelessWidget {
     );
   }
 
-  Widget makeAppBar(BuildContext context) {
+  Widget makeAppBar(String appname, BuildContext context) {
     return AppBar(
-      title: Text(
-        context.read(appNameRiverpod),
-      ),
+      title: Text(appname),
       elevation: 0,
       backgroundColor: Colors.transparent,
       centerTitle: true,

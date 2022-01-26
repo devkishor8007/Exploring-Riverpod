@@ -1,58 +1,41 @@
 // To parse this JSON data, do
 //
-//     final jokesApi = jokesApiFromJson(jsonString);
+//     final person = personFromJson(jsonString);
 
 import 'dart:convert';
 
-List<JokesApi> jokesApiFromJson(String str) =>
-    List<JokesApi>.from(json.decode(str).map((x) => JokesApi.fromJson(x)));
+List<Person> personFromJson(String str) => List<Person>.from(json.decode(str).map((x) => Person.fromJson(x)));
 
-String jokesApiToJson(List<JokesApi> data) =>
-    json.encode(List<dynamic>.from(data.map((x) => x.toJson())));
+String personToJson(List<Person> data) => json.encode(List<dynamic>.from(data.map((x) => x.toJson())));
 
-class JokesApi {
-  JokesApi({
-    this.id,
-    this.type,
-    this.setup,
-    this.punchline,
-  });
+class Person {
+    Person({
+        this.postId,
+        this.id,
+        this.name,
+        this.email,
+        this.body,
+    });
 
-  int id;
-  Type type;
-  String setup;
-  String punchline;
+    int postId;
+    int id;
+    String name;
+    String email;
+    String body;
 
-  factory JokesApi.fromJson(Map<String, dynamic> json) => JokesApi(
+    factory Person.fromJson(Map<String, dynamic> json) => Person(
+        postId: json["postId"],
         id: json["id"],
-        type: typeValues.map[json["type"]],
-        setup: json["setup"],
-        punchline: json["punchline"],
-      );
+        name: json["name"],
+        email: json["email"],
+        body: json["body"],
+    );
 
-  Map<String, dynamic> toJson() => {
+    Map<String, dynamic> toJson() => {
+        "postId": postId,
         "id": id,
-        "type": typeValues.reverse[type],
-        "setup": setup,
-        "punchline": punchline,
-      };
-}
-
-enum Type { GENERAL, PROGRAMMING }
-
-final typeValues =
-    EnumValues({"general": Type.GENERAL, "programming": Type.PROGRAMMING});
-
-class EnumValues<T> {
-  Map<String, T> map;
-  Map<T, String> reverseMap;
-
-  EnumValues(this.map);
-
-  Map<T, String> get reverse {
-    if (reverseMap == null) {
-      reverseMap = map.map((k, v) => new MapEntry(v, k));
-    }
-    return reverseMap;
-  }
+        "name": name,
+        "email": email,
+        "body": body,
+    };
 }
