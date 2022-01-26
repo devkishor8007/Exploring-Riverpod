@@ -1,4 +1,4 @@
-import 'package:exploring_riverpod/BottomNavigation_Riverpod.dart';
+import 'package:exploring_riverpod/riverpod/bottomNavigation_Riverpod.dart';
 import 'package:exploring_riverpod/utilities.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -10,9 +10,9 @@ class HomePage extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final size = MediaQuery.of(context).size;
 
-    final whatWidgetImpl = ref.watch(widgetNameRiverpod);
-    final hopeRiverpodText = ref.watch(hopeRiverpod);
-    final appname = ref.watch(appNameRiverpod);
+    final whatWidgetImpl = ref.read(widgetNameRiverpod);
+    final hopeRiverpodText = ref.read(hopeRiverpod);
+    final appname = ref.read(appNameRiverpod);
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
