@@ -5,7 +5,6 @@ import 'package:exploring_riverpod/route.dart';
 import 'package:exploring_riverpod/utilities.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:exploring_riverpod/main.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -15,11 +14,40 @@ class HomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
     return Consumer(
-      builder: (context, watch, _) {
-        final watchingHomedarkThemeRiverpod = watch(darkThemeRiverpod);
+      builder: (context, ref, _) {
+        final watchingHomedarkThemeRiverpod =
+            ref.watch(darkThemeRiverpod);
+
+        final appname = ref.read(appNameRiverpod);
+        final hopeRiverpodText = ref.read(hopeRiverpod);
         return Scaffold(
           floatingActionButton: viewBox(size, context),
-          appBar: appbar(context, watchingHomedarkThemeRiverpod),
+          appBar: AppBar(
+            backgroundColor: Colors.transparent,
+            elevation: 0,
+            title: Text(
+              appname,
+              style: buildTextStyle(
+                context,
+                color:
+                    watchingHomedarkThemeRiverpod ? Colors.white : Colors.black,
+              ),
+            ),
+            actions: [
+              IconButton(
+                  icon: Icon(
+                    Icons.settings,
+                    color: watchingHomedarkThemeRiverpod
+                        ? Colors.white
+                        : Colors.black,
+                  ),
+                  onPressed: () {
+                    push(context, SettingScreen());
+                  }),
+            ],
+          ),
+
+          // appbar(appname , context,  watchingHomedarkThemeRiverpod),
           body: Padding(
             padding: EdgeInsets.symmetric(
               horizontal: size.width * 0.02,
@@ -29,11 +57,11 @@ class HomeScreen extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    context.read(widgetNameRiverpod),
+                    appname,
                     style: buildTextStyle(
                       context,
                       size: Theme.of(context).textTheme.headline6.fontSize,
-                      color: watchingHomedarkThemeRiverpod.state
+                      color: watchingHomedarkThemeRiverpod
                           ? Colors.white
                           : Colors.black,
                     ),
@@ -58,7 +86,7 @@ class HomeScreen extends StatelessWidget {
                     height: size.height * 0.02,
                   ),
                   Text(
-                    context.read(hopeRiverpod),
+                    hopeRiverpodText,
                   ),
                   SizedBox(
                     height: size.height * 0.1,
@@ -72,33 +100,33 @@ class HomeScreen extends StatelessWidget {
     );
   }
 
-  Widget appbar(BuildContext context,
-      StateController<bool> watchingHomedarkThemeRiverpod) {
-    return AppBar(
-      backgroundColor: Colors.transparent,
-      elevation: 0,
-      title: Text(
-        context.read(appNameRiverpod),
-        style: buildTextStyle(
-          context,
-          color:
-              watchingHomedarkThemeRiverpod.state ? Colors.white : Colors.black,
-        ),
-      ),
-      actions: [
-        IconButton(
-            icon: Icon(
-              Icons.settings,
-              color: watchingHomedarkThemeRiverpod.state
-                  ? Colors.white
-                  : Colors.black,
-            ),
-            onPressed: () {
-              push(context, SettingScreen());
-            }),
-      ],
-    );
-  }
+  // Widget appbar(String appname, BuildContext context,
+  //     StateController<bool> watchingHomedarkThemeRiverpod) {
+  //   return AppBar(
+  //     backgroundColor: Colors.transparent,
+  //     elevation: 0,
+  //     title: Text(
+  //       appname,
+  //       style: buildTextStyle(
+  //         context,
+  //         color:
+  //             watchingHomedarkThemeRiverpod.state ? Colors.white : Colors.black,
+  //       ),
+  //     ),
+  //     actions: [
+  //       IconButton(
+  //           icon: Icon(
+  //             Icons.settings,
+  //             color: watchingHomedarkThemeRiverpod.state
+  //                 ? Colors.white
+  //                 : Colors.black,
+  //           ),
+  //           onPressed: () {
+  //             push(context, SettingScreen());
+  //           }),
+  //     ],
+  //   );
+  // }
 
   Widget viewBox(Size size, BuildContext context) {
     return Container(

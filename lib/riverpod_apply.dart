@@ -6,3 +6,5 @@ final widgetNameRiverpod =
     Provider<String>((ref) => "Dark Theme using Switch Widget");
 final hopeRiverpod = Provider<String>(
     (ref) => "Hope You'll Understand This! \nKeep Learning and Stay Safe");
+
+final darkThemeRiverpod = StateProvider<bool>((ref) => false);

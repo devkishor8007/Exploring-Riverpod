@@ -1,4 +1,5 @@
-import 'package:exploring_riverpod/main.dart';
+// ignore_for_file: must_be_immutable
+
 import 'package:exploring_riverpod/riverpod_apply.dart';
 import 'package:exploring_riverpod/route.dart';
 import 'package:exploring_riverpod/utilities.dart';
@@ -6,14 +7,15 @@ import 'package:flutter/material.dart';
 import 'package:flutter_lorem/flutter_lorem.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-// ignore: must_be_immutable
 class DataScreen extends ConsumerWidget {
   String text = lorem(paragraphs: 8, words: 800);
 
   @override
-  Widget build(BuildContext context, ScopedReader watch) {
+  Widget build(BuildContext context, WidgetRef ref) {
     final size = MediaQuery.of(context).size;
-    final watchDatadarkThemeRiverpod = watch(darkThemeRiverpod);
+    final watchDatadarkThemeRiverpod = ref.watch(darkThemeRiverpod);
+
+    final appname = ref.read(appNameRiverpod);
     return SafeArea(
       child: Scaffold(
         appBar: AppBar(
@@ -22,24 +24,19 @@ class DataScreen extends ConsumerWidget {
               icon: Icon(
                 Icons.navigate_before,
                 size: Theme.of(context).textTheme.headline4.fontSize,
-                color: watchDatadarkThemeRiverpod.state
-                    ? Colors.transparent
-                    : Colors.black,
+                color: watchDatadarkThemeRiverpod ? Colors.white : Colors.black,
               ),
               onPressed: () {
                 pop(context);
               }),
-          backgroundColor: watchDatadarkThemeRiverpod.state
-              ? Colors.black
-              : Colors.transparent,
+          backgroundColor:
+              watchDatadarkThemeRiverpod ? Colors.black : Colors.transparent,
           elevation: 0,
           title: Text(
-            context.read(appNameRiverpod),
+            appname,
             style: buildTextStyle(
               context,
-              color: watchDatadarkThemeRiverpod.state
-                  ? Colors.white
-                  : Colors.black,
+              color: watchDatadarkThemeRiverpod ? Colors.white : Colors.black,
             ),
           ),
         ),
