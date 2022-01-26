@@ -1,18 +1,19 @@
-# exploring_riverpod_day1
+# exploring_riverpod_flutter
 
-A new Flutter project Counter App 
+A new Flutter project with the Riverpod State Management
 
-## Kishor Kc
+![riverpod](https://user-images.githubusercontent.com/73419211/151202072-1a3fed5b-6a8c-4fab-80b7-768eb5533d59.png)
 
-I am exploring Riverpod and build a Counter app.<br>
-```Riverpod``` is a ```State Management``` created by the ```Remi Rousellete```<br>
+## Kishor Kc - Flutter State Management Riverpod - 
+
+I am exploring Riverpod and build a lots of sample flutter app with the help of riverpod.<br>
+```Riverpod``` is a complete rewrite of the ```Provider``` package to make improvements that would be otherwise impossible which is created by the ```Remi Rousselet```<br>
+```dart 
+It ensures compile safety and with in it, can supports multiple provider instances at the same time
+It recompute states/rebuild UI only when needed
+```
 Check out the official website of [Riverpod](https://riverpod.dev/)<br>
-```I hope this will help many beginner developers and get the concept of Riverpod State Management.```
-
-Output of the Counter App<br>
-<p>
-<img src="https://user-images.githubusercontent.com/73419211/120023554-af1db680-c00d-11eb-9bf9-f9145aae2228.jpg" height="500" width="280">
-</p>
+```I hope this repo will help many beginner developers and get the concept of Riverpod State Management.```
 
 # What's in Exploring-Riverpod?
 ## Day 1
@@ -106,7 +107,7 @@ Output of the Drop-Down Button Widget Flutter App
 You can get project Joke Flutter App where I am fetching the API Joke data as to shown in our app.<br>
 Output of the Joke Flutter App
 <p>
-<img src="https://user-images.githubusercontent.com/73419211/121732126-90411900-cb11-11eb-8e83-1a533121f773.jpg" height="500" width="280">
-<img src="https://user-images.githubusercontent.com/73419211/121732134-920adc80-cb11-11eb-8b6d-ac7d2d6741de.jpg" height="500" width="280">
+<img src="https://user-images.githubusercontent.com/73419211/151199807-91f4b04b-db71-47ae-8ac5-34a387554bd5.jpg" height="500" width="280">
+<img src="https://user-images.githubusercontent.com/73419211/151200132-09ad9dbc-caf8-4c8b-a7bf-3aa89ced3c33.jpg" height="500" width="280">
 </p>
 
