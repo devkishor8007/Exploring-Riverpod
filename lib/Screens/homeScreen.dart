@@ -15,8 +15,7 @@ class HomeScreen extends StatelessWidget {
     final size = MediaQuery.of(context).size;
     return Consumer(
       builder: (context, ref, _) {
-        final watchingHomedarkThemeRiverpod =
-            ref.watch(darkThemeRiverpod);
+        final watchingHomedarkThemeRiverpod = ref.watch(darkThemeRiverpod);
 
         final appname = ref.read(appNameRiverpod);
         final hopeRiverpodText = ref.read(hopeRiverpod);
@@ -46,8 +45,6 @@ class HomeScreen extends StatelessWidget {
                   }),
             ],
           ),
-
-          // appbar(appname , context,  watchingHomedarkThemeRiverpod),
           body: Padding(
             padding: EdgeInsets.symmetric(
               horizontal: size.width * 0.02,
@@ -99,34 +96,6 @@ class HomeScreen extends StatelessWidget {
       },
     );
   }
-
-  // Widget appbar(String appname, BuildContext context,
-  //     StateController<bool> watchingHomedarkThemeRiverpod) {
-  //   return AppBar(
-  //     backgroundColor: Colors.transparent,
-  //     elevation: 0,
-  //     title: Text(
-  //       appname,
-  //       style: buildTextStyle(
-  //         context,
-  //         color:
-  //             watchingHomedarkThemeRiverpod.state ? Colors.white : Colors.black,
-  //       ),
-  //     ),
-  //     actions: [
-  //       IconButton(
-  //           icon: Icon(
-  //             Icons.settings,
-  //             color: watchingHomedarkThemeRiverpod.state
-  //                 ? Colors.white
-  //                 : Colors.black,
-  //           ),
-  //           onPressed: () {
-  //             push(context, SettingScreen());
-  //           }),
-  //     ],
-  //   );
-  // }
 
   Widget viewBox(Size size, BuildContext context) {
     return Container(

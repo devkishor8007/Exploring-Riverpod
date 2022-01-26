@@ -9,8 +9,7 @@ class SettingScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Consumer(
       builder: (context, ref, child) {
-        final watchingSettingDarkThemeRiverpod =
-            ref.watch(darkThemeRiverpod);
+        final watchingSettingDarkThemeRiverpod = ref.watch(darkThemeRiverpod);
 
         final settingRiverpodName = ref.read(appsettingRiverpod);
         return Scaffold(
@@ -40,9 +39,6 @@ class SettingScreen extends StatelessWidget {
               ),
             ),
           ),
-
-          //  appbar(
-          // settingRiverpodName, watchingSettingDarkThemeRiverpod, context),
           body: Column(
             children: [
               SwitchListTile(
@@ -58,22 +54,4 @@ class SettingScreen extends StatelessWidget {
       },
     );
   }
-
-  // Widget darkThemeSwitch(StateController<bool> watchingSettingDarkThemeRiverpod,
-  //     BuildContext context) {
-  //   return SwitchListTile(
-  //       title: Text('Dark Theme'),
-  //       value: watchingSettingDarkThemeRiverpod.state,
-  //       onChanged: (changeValue) {
-  //         context.read(darkThemeRiverpod).state =
-  //             !context.read(darkThemeRiverpod).state;
-  //       });
-  // }
-
-  // Widget appbar(
-  //     String appname,
-  //     StateController<bool> watchingSettingDarkThemeRiverpod,
-  //     BuildContext context) {
-  //   return
-  // }
 }
