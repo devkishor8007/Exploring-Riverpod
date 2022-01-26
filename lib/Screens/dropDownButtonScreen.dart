@@ -8,18 +8,22 @@ final calDropdownButton = ChangeNotifierProvider<DropdownButtonsRiverpod>(
 
 class DropDownButtonScreens extends ConsumerWidget {
   @override
-  Widget build(BuildContext context, ScopedReader watch) {
+  Widget build(BuildContext context, WidgetRef ref) {
     final size = MediaQuery.of(context).size;
-    var watchcallDropdownButton = watch(calDropdownButton);
+    var watchcallDropdownButton = ref.watch(calDropdownButton);
+
+    final whatWidgetImpl = ref.watch(widgetNameRiverpod);
+    final hopeRiverpodText = ref.watch(hopeRiverpod);
+    final appname = ref.watch(appNameRiverpod);
     return SafeArea(
       child: Scaffold(
-        appBar: buildAppBar(context),
+        appBar: buildAppBar(appname, context),
         body: Padding(
           padding: EdgeInsets.symmetric(horizontal: size.width * 0.02),
           child: ListView(
             children: [
               Text(
-                context.read(widgetNameRiverpod),
+                whatWidgetImpl,
                 style: buildTextStyle(
                   context,
                   color: Colors.white,
@@ -33,9 +37,7 @@ class DropDownButtonScreens extends ConsumerWidget {
                 ),
                 dropdownColor: Colors.black,
                 onChanged: (newChanged) {
-                  context
-                      .read(calDropdownButton)
-                      .onChangeCountryName(newChanged);
+                  watchcallDropdownButton.onChangeCountryName(newChanged);
                 },
                 items: watchcallDropdownButton.countryNameList
                     .map((String showData) {
@@ -50,9 +52,7 @@ class DropDownButtonScreens extends ConsumerWidget {
                 height: size.height * 0.2,
               ),
               Text(
-                context.read(
-                  hopeRiverpod,
-                ),
+                hopeRiverpodText,
                 style: TextStyle(
                   color: Colors.white,
                 ),
@@ -68,14 +68,13 @@ class DropDownButtonScreens extends ConsumerWidget {
   }
 
   Widget buildAppBar(
+    String appname,
     BuildContext context,
   ) {
     return AppBar(
       elevation: 0,
       backgroundColor: Colors.transparent,
-      title: Text(
-        context.read(appNameRiverpod),
-      ),
+      title: Text(appname),
     );
   }
 }
