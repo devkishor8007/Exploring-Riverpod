@@ -12,11 +12,13 @@ class SettingScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Consumer(
-      builder: (context, watch, child) {
-        final watchcallChangeAllFont = watch(callChangeAllFont);
+      builder: (context, ref, child) {
+        final watchcallChangeAllFont = ref.watch(callChangeAllFont);
+
+        final settingRiverpodName = ref.read(appsettingRiverpod);
 
         return Scaffold(
-          appBar: appBar(context),
+          appBar: appBar(settingRiverpodName, context),
           body: Column(
             children: [
               Text(
@@ -32,7 +34,7 @@ class SettingScreen extends StatelessWidget {
                   min: 15,
                   value: watchcallChangeAllFont.fontSize,
                   onChanged: (val) {
-                    context.read(callChangeAllFont).increaseSize(val);
+                    watchcallChangeAllFont.increaseSize(val);
                   }),
             ],
           ),
@@ -41,7 +43,7 @@ class SettingScreen extends StatelessWidget {
     );
   }
 
-  Widget appBar(BuildContext context) {
+  Widget appBar(String settingName, BuildContext context) {
     return AppBar(
       automaticallyImplyLeading: false,
       leading: IconButton(
@@ -56,7 +58,7 @@ class SettingScreen extends StatelessWidget {
       elevation: 0,
       backgroundColor: Colors.transparent,
       title: Text(
-        context.read(appsettingRiverpod),
+        settingName,
         style: buildTextStyle(
           context,
         ),

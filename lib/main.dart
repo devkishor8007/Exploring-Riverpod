@@ -8,7 +8,7 @@ void main() {
 
 class Day8 extends ConsumerWidget {
   @override
-  Widget build(BuildContext context, ScopedReader watch) {
+  Widget build(BuildContext context, WidgetRef ref) {
     return MaterialApp(
       title: "Day 8",
       theme: ThemeData(

@@ -10,12 +10,15 @@ class TextSizeChangerScreen extends ConsumerWidget {
   String text = lorem(paragraphs: 2, words: 40);
 
   @override
-  Widget build(BuildContext context, ScopedReader watch) {
+  Widget build(BuildContext context, WidgetRef ref) {
     final size = MediaQuery.of(context).size;
-    var watchcallChangeAllFont = watch(callChangeAllFont);
+    var watchcallChangeAllFont = ref.watch(callChangeAllFont);
+
+    final appname = ref.read(appNameRiverpod);
+    final hopeRiverpodText = ref.read(hopeRiverpod);
     return SafeArea(
       child: Scaffold(
-        appBar: buildAppBar(context),
+        appBar: buildAppBar(appname, context),
         body: Padding(
           padding: EdgeInsets.symmetric(horizontal: size.width * 0.02),
           child: ListView(
@@ -31,9 +34,7 @@ class TextSizeChangerScreen extends ConsumerWidget {
                 height: size.height * 0.3,
               ),
               Text(
-                context.read(
-                  hopeRiverpod,
-                ),
+                hopeRiverpodText,
                 style: TextStyle(
                   color: Colors.white,
                 ),
@@ -46,14 +47,13 @@ class TextSizeChangerScreen extends ConsumerWidget {
   }
 
   Widget buildAppBar(
+    String appName,
     BuildContext context,
   ) {
     return AppBar(
       elevation: 0,
       backgroundColor: Colors.transparent,
-      title: Text(
-        context.read(appNameRiverpod),
-      ),
+      title: Text(appName),
       actions: [
         IconButton(
             icon: Icon(
