@@ -11,9 +11,6 @@ class Day10 extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     return MaterialApp(
       title: "Day 10",
-      theme: ThemeData(
-        scaffoldBackgroundColor: Colors.deepOrangeAccent.withOpacity(0.2),
-      ),
       debugShowCheckedModeBanner: false,
       home: HomeScreen(),
     );
