@@ -10,7 +10,7 @@ class Day10 extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     return MaterialApp(
-      title: "Day 10",
+      title: "Day 12",
       debugShowCheckedModeBanner: false,
       home: HomeScreen(),
     );
