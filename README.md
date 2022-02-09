@@ -111,3 +111,30 @@ Output of the Joke Flutter App
 <img src="https://user-images.githubusercontent.com/73419211/151200132-09ad9dbc-caf8-4c8b-a7bf-3aa89ced3c33.jpg" height="500" width="280">
 </p>
 
+## Day 11
+You can get project MiniMart Flutter App where I am getting the data through the Objec as you canshown in our app.<br>
+Output of the MiniMart Flutter App
+<p>
+<img src="https://user-images.githubusercontent.com/73419211/153127688-5de2fedf-33ca-4d6a-8722-eac3b23c5fb8.jpg" height="500" width="280">
+<img src="https://user-images.githubusercontent.com/73419211/153127695-946af0b1-e56f-4632-9efb-f6d01d82a2b3.jpg" height="500" width="280">
+</p>
+
+## Day 12
+You can get project Sqflite Todo Flutter App where I am able to get, add, update and delete the data through sqflite using Riverpod as you can shown in our app.<br>
+### Features
+   - User can add and get the TODO data 
+   - User can update those TODO data
+   - double clicking the TODO, can see the detail of that
+   - long press clicking, can delete the single clicking TODO
+   - we can delete the all TODO
+
+Output of the Sqflite Todo Flutter App
+<p>
+<img src="https://user-images.githubusercontent.com/73419211/153126559-132b88e4-bb2f-4fd4-b81f-e0db5f48d44d.jpg" height="500" width="280">
+<img src="https://user-images.githubusercontent.com/73419211/153126551-7cb96ea0-8a0f-459b-83a0-31ccbe870c6f.jpg" height="500" width="280">
+<img src="https://user-images.githubusercontent.com/73419211/153126873-2129ea0a-66ca-49e9-8f11-f1084f7885b8.jpg" height="500" width="280">
+<img src="https://user-images.githubusercontent.com/73419211/153126552-d0352422-c41f-4f0c-8de5-2d751e688418.jpg" height="500" width="280">
+<img src="https://user-images.githubusercontent.com/73419211/153127243-3cd920fc-b947-4506-8c0a-2d49adfdd957.jpg" height="500" width="280">
+<img src="https://user-images.githubusercontent.com/73419211/153126562-cf033f9c-7e88-4698-842e-33f9776436e3.jpg" height="500" width="280">
+</p>
+
