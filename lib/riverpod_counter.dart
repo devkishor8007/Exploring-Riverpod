@@ -18,3 +18,13 @@ class CounterRiverpod extends ChangeNotifier {
     notifyListeners();
   }
 }
+
+final counterNotifierProvider =
+    StateNotifierProvider<CounterNotifer, int>((_) => CounterNotifer());
+
+class CounterNotifer extends StateNotifier<int> {
+  CounterNotifer() : super(0);
+
+  void add() => state = state + 1;
+  void subtract() => state = state - 1;
+}

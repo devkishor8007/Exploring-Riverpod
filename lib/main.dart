@@ -1,4 +1,5 @@
-import 'package:exploring_riverpod/page/counterPage.dart';
+import 'package:exploring_riverpod/page/counterPage-notifer.dart';
+// import 'package:exploring_riverpod/page/counterPage.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
@@ -16,7 +17,8 @@ class MyApp extends StatelessWidget {
             backgroundColor: Colors.lightBlue.withBlue(3)),
       ),
       debugShowCheckedModeBanner: false,
-      home: CounterPage(),
+      // home: CounterPage(),  // for ChangeNotifier
+      home: CounterNotiferPage(), // for state notifer
     );
   }
 }
