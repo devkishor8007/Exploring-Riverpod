@@ -18,6 +18,15 @@ class SwitchWidget extends ChangeNotifier {
   }
 }
 
+final myswitchNotifierProvider =
+    StateNotifierProvider<SwitchNotifier, bool>((_) => SwitchNotifier());
+
+class SwitchNotifier extends StateNotifier<bool> {
+  SwitchNotifier() : super(false);
+
+  changeValue(v) => state = v;
+}
+
 class MultipleSwitchWidget extends ChangeNotifier {
   bool _value1 = false;
   bool _value2 = false;

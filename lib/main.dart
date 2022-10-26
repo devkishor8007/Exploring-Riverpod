@@ -1,4 +1,5 @@
-import 'package:exploring_riverpod/page/switchPage.dart';
+// import 'package:exploring_riverpod/page/switchPage.dart';
+import 'package:exploring_riverpod/page/switchPageNotifer.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
@@ -15,7 +16,8 @@ class Day3 extends StatelessWidget {
         canvasColor: Colors.teal.withOpacity(0.3),
       ),
       debugShowCheckedModeBanner: false,
-      home: SwitchHomePage(),
+      // home: SwitchHomePage(),
+      home: SwitchHomeNotifierPage(),
     );
   }
 }

@@ -22,7 +22,7 @@ class SwitchHomePage extends ConsumerWidget {
     final appname = ref.watch(appNameRiverpod);
     return SafeArea(
       child: Scaffold(
-        appBar: appBar(context, appname),
+        appBar: appBar(context, appname) as PreferredSizeWidget?,
         body: SingleChildScrollView(
           child: Padding(
             padding: EdgeInsets.symmetric(
@@ -43,7 +43,7 @@ class SwitchHomePage extends ConsumerWidget {
                           singleswitch,
                           style: TextStyle(
                             fontSize:
-                                Theme.of(context).textTheme.headline5.fontSize,
+                                Theme.of(context).textTheme.headline5!.fontSize,
                             fontWeight: FontWeight.bold,
                           ),
                         ),
@@ -69,7 +69,7 @@ class SwitchHomePage extends ConsumerWidget {
                           style: TextStyle(
                             fontWeight: FontWeight.bold,
                             fontSize:
-                                Theme.of(context).textTheme.headline5.fontSize,
+                                Theme.of(context).textTheme.headline5!.fontSize,
                           ),
                         ),
                       ),
@@ -107,7 +107,7 @@ class SwitchHomePage extends ConsumerWidget {
                   hopeRiverpodText,
                   style: Theme.of(context)
                       .textTheme
-                      .caption
+                      .caption!
                       .copyWith(color: Colors.white),
                 ),
               ],
@@ -132,10 +132,12 @@ class SwitchHomePage extends ConsumerWidget {
   }
 
   Widget multipleSwitchListTile(BuildContext context,
-      {bool value, Function onChanged, String textSwitch}) {
+      {required bool value,
+      required void Function(bool)? onChanged,
+      String? textSwitch}) {
     return SwitchListTile(
       title: Text(
-        textSwitch,
+        textSwitch!,
       ),
       activeColor: Colors.redAccent,
       value: value,
@@ -150,8 +152,10 @@ class SwitchHomePage extends ConsumerWidget {
       centerTitle: true,
       title: Text(
         appname,
-        style:
-            Theme.of(context).textTheme.headline5.copyWith(color: Colors.white),
+        style: Theme.of(context)
+            .textTheme
+            .headline5!
+            .copyWith(color: Colors.white),
       ),
     );
   }
