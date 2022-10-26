@@ -5,11 +5,11 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 final sliderRiverpod =
     ChangeNotifierProvider<SliderWidget>((ref) => SliderWidget());
 
-class SliderHomePage extends ConsumerWidget {
+class SliderNotifierPage extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final mq = MediaQuery.of(context).size;
-    var sliderImplement = ref.watch(sliderRiverpod);
+    var sliderImplement = ref.watch(sliderNotifierRiverpod);
 
     final whatWidgetImpl = ref.watch(whatWidgetRivepod);
     final hopeRiverpodText = ref.watch(hopeRiverpod);
@@ -38,10 +38,18 @@ class SliderHomePage extends ConsumerWidget {
                   ),
                   child: makeTextHelp(
                     context,
-                    "The value is " + sliderImplement.value.toStringAsFixed(2),
+                    "The value is " + sliderImplement.toString(),
                   ),
                 ),
-                sliderShow(sliderImplement, context),
+                // sliderShow(sliderImplement, context),
+                Slider(
+                  min: 0,
+                  max: 10,
+                  value: sliderImplement,
+                  onChanged: (v) {
+                    ref.read(sliderNotifierRiverpod.notifier).onchanged(v);
+                  },
+                ),
                 SizedBox(
                   height: mq.height * 0.3,
                 ),
@@ -85,8 +93,10 @@ class SliderHomePage extends ConsumerWidget {
       centerTitle: true,
       title: Text(
         appname,
-        style:
-            Theme.of(context).textTheme.headline5!.copyWith(color: Colors.white),
+        style: Theme.of(context)
+            .textTheme
+            .headline5!
+            .copyWith(color: Colors.white),
       ),
     );
   }

@@ -15,3 +15,11 @@ class SliderWidget extends ChangeNotifier {
     notifyListeners();
   }
 }
+
+final sliderNotifierRiverpod = StateNotifierProvider<SliderNotifier, double>((_)=> SliderNotifier());
+
+class SliderNotifier extends StateNotifier<double> {
+  SliderNotifier(): super(0.0);
+
+  onchanged(val) => state = val;
+}

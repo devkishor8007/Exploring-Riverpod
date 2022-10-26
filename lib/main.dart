@@ -1,4 +1,5 @@
-import 'package:exploring_riverpod/page/sliderPage.dart';
+// import 'package:exploring_riverpod/page/sliderPage.dart';
+import 'package:exploring_riverpod/page/sliderPageNotifer.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
@@ -15,7 +16,8 @@ class Day4 extends StatelessWidget {
         canvasColor: Colors.orangeAccent.withOpacity(0.3),
       ),
       debugShowCheckedModeBanner: false,
-      home: SliderHomePage(),
+      // home: SliderHomePage(), // page for change notifier
+      home: SliderNotifierPage(), // page for state notifier
     );
   }
 }
