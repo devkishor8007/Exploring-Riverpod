@@ -10,10 +10,11 @@ class DataTypePage extends ConsumerWidget {
     final stringImpl = ref.watch(stringRiverpod);
     final intImpl = ref.watch(intRiverpod);
     final doubleImpl = ref.watch(doubleRiverpod);
+    final dateImpl = ref.watch(dateRiverpod);
     final listImpl = ref.watch(listRiverpod);
     return SafeArea(
       child: Scaffold(
-        appBar: appBar(appName, context),
+        appBar: appBar(appName, context) as PreferredSizeWidget?,
         body: SingleChildScrollView(
           child: Padding(
             padding: EdgeInsets.symmetric(
@@ -28,21 +29,28 @@ class DataTypePage extends ConsumerWidget {
                       "String Text " + stringImpl,
                       style: Theme.of(context)
                           .textTheme
-                          .headline6
+                          .headline6!
                           .copyWith(color: Colors.white),
                     ),
                     Text(
                       "Integer Value : " + intImpl.toString(),
                       style: Theme.of(context)
                           .textTheme
-                          .headline6
+                          .headline6!
+                          .copyWith(color: Colors.white),
+                    ),
+                    Text(
+                      "Date : " + dateImpl.toString(),
+                      style: Theme.of(context)
+                          .textTheme
+                          .headline6!
                           .copyWith(color: Colors.white),
                     ),
                     Text(
                       "Double Value : " + doubleImpl.toString(),
                       style: Theme.of(context)
                           .textTheme
-                          .headline6
+                          .headline6!
                           .copyWith(color: Colors.white),
                     ),
                     SizedBox(
@@ -52,7 +60,7 @@ class DataTypePage extends ConsumerWidget {
                       "Riverpod List Data",
                       style: Theme.of(context)
                           .textTheme
-                          .headline6
+                          .headline6!
                           .copyWith(color: Colors.white),
                     ),
                     SizedBox(
@@ -68,7 +76,7 @@ class DataTypePage extends ConsumerWidget {
                   "Hope You'll Understand This! \nKeep Learning and Stay Safe",
                   style: Theme.of(context)
                       .textTheme
-                      .caption
+                      .caption!
                       .copyWith(color: Colors.white),
                 ),
               ],
@@ -102,7 +110,7 @@ class DataTypePage extends ConsumerWidget {
               data[index],
               style: Theme.of(context)
                   .textTheme
-                  .headline6
+                  .headline6!
                   .copyWith(color: Colors.black),
             ),
             trailing: Icon(
@@ -121,8 +129,10 @@ class DataTypePage extends ConsumerWidget {
       centerTitle: true,
       title: Text(
         appname,
-        style:
-            Theme.of(context).textTheme.headline5.copyWith(color: Colors.white),
+        style: Theme.of(context)
+            .textTheme
+            .headline5!
+            .copyWith(color: Colors.white),
       ),
     );
   }
