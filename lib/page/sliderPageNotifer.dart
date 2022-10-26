@@ -41,7 +41,6 @@ class SliderNotifierPage extends ConsumerWidget {
                     "The value is " + sliderImplement.toString(),
                   ),
                 ),
-                // sliderShow(sliderImplement, context),
                 Slider(
                   min: 0,
                   max: 10,
@@ -62,17 +61,6 @@ class SliderNotifierPage extends ConsumerWidget {
           ),
         ),
       ),
-    );
-  }
-
-  Widget sliderShow(SliderWidget sliderImplement, BuildContext context) {
-    return Slider(
-      min: 0,
-      max: 10,
-      value: sliderImplement.value,
-      onChanged: (v) {
-        sliderImplement.onchanged(v);
-      },
     );
   }
 
