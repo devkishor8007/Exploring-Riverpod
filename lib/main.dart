@@ -16,8 +16,8 @@ class Day3 extends StatelessWidget {
         canvasColor: Colors.teal.withOpacity(0.3),
       ),
       debugShowCheckedModeBanner: false,
-      // home: SwitchHomePage(),
-      home: SwitchHomeNotifierPage(),
+      // home: SwitchHomePage(), // page for change notifer
+      home: SwitchHomeNotifierPage(), // page for state notifer
     );
   }
 }
