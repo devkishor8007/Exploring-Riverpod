@@ -16,3 +16,12 @@ class TextFormWidget extends ChangeNotifier {
     notifyListeners();
   }
 }
+
+final textRiverPod =
+    StateNotifierProvider<TextNotifier, String>((_) => TextNotifier());
+
+class TextNotifier extends StateNotifier<String> {
+  TextNotifier() : super('Kishor KC');
+
+  void onChangedVlue(String val) => state = val;
+}
