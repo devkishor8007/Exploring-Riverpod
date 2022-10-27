@@ -1,4 +1,5 @@
-import 'package:exploring_riverpod/page/bottomNavigation_page.dart';
+import 'package:exploring_riverpod/page/bottomNavigation.notifer.page.dart';
+// import 'package:exploring_riverpod/page/bottomNavigation_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
@@ -15,7 +16,8 @@ class Day4 extends StatelessWidget {
         canvasColor: Colors.purpleAccent.withOpacity(0.3),
       ),
       debugShowCheckedModeBanner: false,
-      home: BottomNavigationPage(),
+      // home: BottomNavigationPage(), // use change notifer
+      home: BottomNavigationNotifierPage(), // use state notifer
     );
   }
 }

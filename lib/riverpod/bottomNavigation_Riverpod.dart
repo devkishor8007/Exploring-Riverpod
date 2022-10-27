@@ -7,17 +7,7 @@ final widgetNameRiverpod =
 final hopeRiverpod = Provider<String>(
     (ref) => "Hope You'll Understand This! \nKeep Learning and Stay Safe");
 
-class TextFormWidget extends ChangeNotifier {
-  String _text = "Kishor Kc";
-
-  String get text => _text;
-
-  onChangedVlue(String val) {
-    _text = val;
-    notifyListeners();
-  }
-}
-
+// Change Notifier
 final callingBottomNavigation =
     ChangeNotifierProvider<BottomNavigationBarWidget>(
         (ref) => BottomNavigationBarWidget());
@@ -31,4 +21,14 @@ class BottomNavigationBarWidget extends ChangeNotifier {
     _currentValue = newValue;
     notifyListeners();
   }
+}
+
+// state notifier
+final bottomNotifierProvider =
+    StateNotifierProvider<BottomNotifier, int>((_) => BottomNotifier());
+
+class BottomNotifier extends StateNotifier<int> {
+  BottomNotifier() : super(0);
+
+  changeValue(v) => state = v;
 }

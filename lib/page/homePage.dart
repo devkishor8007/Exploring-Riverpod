@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 class HomePage extends ConsumerWidget {
-  const HomePage({Key key}) : super(key: key);
+  const HomePage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -40,7 +40,7 @@ class HomePage extends ConsumerWidget {
               "Welcome to Home Page",
               style: buildTextStyle(
                 context,
-                size: Theme.of(context).textTheme.headline6.fontSize,
+                size: Theme.of(context).textTheme.headline6!.fontSize,
               ),
             ),
             SizedBox(
@@ -50,7 +50,7 @@ class HomePage extends ConsumerWidget {
               hopeRiverpodText,
               style: buildTextStyle(
                 context,
-                size: Theme.of(context).textTheme.bodyText1.fontSize,
+                size: Theme.of(context).textTheme.bodyText1!.fontSize,
               ),
             ),
           ],
