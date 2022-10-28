@@ -8,7 +8,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 
 class HomeScreen extends StatelessWidget {
-  const HomeScreen({Key key}) : super(key: key);
+  const HomeScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -57,7 +57,7 @@ class HomeScreen extends StatelessWidget {
                     appname,
                     style: buildTextStyle(
                       context,
-                      size: Theme.of(context).textTheme.headline6.fontSize,
+                      size: Theme.of(context).textTheme.headline6!.fontSize,
                       color: watchingHomedarkThemeRiverpod
                           ? Colors.white
                           : Colors.black,
@@ -120,7 +120,7 @@ class HomeScreen extends StatelessWidget {
     );
   }
 
-  Widget image(Size size, {String imageUrl}) {
+  Widget image(Size size, {String? imageUrl}) {
     return ClipRRect(
       borderRadius: BorderRadius.circular(15),
       child: CachedNetworkImage(

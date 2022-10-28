@@ -23,7 +23,7 @@ class DataScreen extends ConsumerWidget {
           leading: IconButton(
               icon: Icon(
                 Icons.navigate_before,
-                size: Theme.of(context).textTheme.headline4.fontSize,
+                size: Theme.of(context).textTheme.headline4!.fontSize,
                 color: watchDatadarkThemeRiverpod ? Colors.white : Colors.black,
               ),
               onPressed: () {

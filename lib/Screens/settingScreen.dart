@@ -21,7 +21,7 @@ class SettingScreen extends StatelessWidget {
                 color: watchingSettingDarkThemeRiverpod
                     ? Colors.white
                     : Colors.black,
-                size: Theme.of(context).textTheme.headline4.fontSize,
+                size: Theme.of(context).textTheme.headline4!.fontSize,
               ),
               onPressed: () {
                 pop(context);
