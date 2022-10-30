@@ -14,10 +14,10 @@ class DropdownButtonsRiverpod extends ChangeNotifier {
     "China",
     "India",
   ];
-  String _currentCountryName = "Nepal";
+  String? _currentCountryName = "Nepal";
 
   List<String> get countryNameList => _countryNameList;
-  String get currentCountryName => _currentCountryName;
+  String? get currentCountryName => _currentCountryName;
 
   onChangeCountryName(newVal) {
     _currentCountryName = newVal;

@@ -1,0 +1,10 @@
+dart migrate
+flutter pub outdated --mode=null-safety
+flutter pub upgrade --null-safety
+dart migrate
+
+
+
+update the version of sdk
+update riverpod latest
+add state notifer too

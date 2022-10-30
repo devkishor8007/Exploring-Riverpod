@@ -17,7 +17,7 @@ class DropDownButtonScreens extends ConsumerWidget {
     final appname = ref.watch(appNameRiverpod);
     return SafeArea(
       child: Scaffold(
-        appBar: buildAppBar(appname, context),
+        appBar: buildAppBar(appname, context) as PreferredSizeWidget?,
         body: Padding(
           padding: EdgeInsets.symmetric(horizontal: size.width * 0.02),
           child: ListView(
@@ -27,7 +27,7 @@ class DropDownButtonScreens extends ConsumerWidget {
                 style: buildTextStyle(
                   context,
                   color: Colors.white,
-                  size: Theme.of(context).textTheme.headline6.fontSize,
+                  size: Theme.of(context).textTheme.headline6!.fontSize,
                 ),
               ),
               DropdownButton<String>(
