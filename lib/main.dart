@@ -3,14 +3,14 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'screen/homeScreen.dart';
 
 void main() {
-  runApp(ProviderScope(child: Day10()));
+  runApp(ProviderScope(child: Day11()));
 }
 
-class Day10 extends ConsumerWidget {
+class Day11 extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     return MaterialApp(
-      title: "Day 10",
+      title: "Day 11",
       debugShowCheckedModeBanner: false,
       home: HomeScreen(),
     );
