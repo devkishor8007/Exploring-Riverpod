@@ -4,6 +4,6 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 final apiService = Provider((ref) => DataService());
 
-final dataServicesRiverpod = FutureProvider<List<Person>>((ref) {
+final dataServicesRiverpod = FutureProvider<List<Person>?>((ref) {
   return ref.read(apiService).getListJokesApi();
 });

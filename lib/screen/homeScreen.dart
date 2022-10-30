@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 class HomeScreen extends StatelessWidget {
-  const HomeScreen({Key key}) : super(key: key);
+  const HomeScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -16,7 +16,7 @@ class HomeScreen extends StatelessWidget {
         final whatWidgetImpl = ref.watch(widgetNameRiverpod);
         final appname = ref.watch(appNameRiverpod);
         return Scaffold(
-          appBar: makeAppBar(appname, context),
+          appBar: makeAppBar(appname, context) as PreferredSizeWidget?,
           body: apiServiceImplement.when(
             data: (data) => Padding(
               padding: EdgeInsets.symmetric(
@@ -30,7 +30,7 @@ class HomeScreen extends StatelessWidget {
                     style: buildTextStyle(
                       context,
                       color: Colors.white,
-                      size: Theme.of(context).textTheme.headline6.fontSize,
+                      size: Theme.of(context).textTheme.headline6!.fontSize,
                     ),
                   ),
                   SizedBox(
@@ -38,15 +38,15 @@ class HomeScreen extends StatelessWidget {
                   ),
                   Expanded(
                     child: ListView.builder(
-                      itemCount: data.length,
+                      itemCount: data!.length,
                       itemBuilder: (_, index) {
                         return ListTile(
                           title: Text(
-                            data[index].name,
+                            data[index].name!,
                             style: buildTextStyle(context, color: Colors.white),
                           ),
                           subtitle: Text(
-                            data[index].email,
+                            data[index].email!,
                             style: buildTextStyle(context, color: Colors.grey),
                           ),
                           leading: Text(

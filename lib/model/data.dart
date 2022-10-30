@@ -17,11 +17,11 @@ class Person {
         this.body,
     });
 
-    int postId;
-    int id;
-    String name;
-    String email;
-    String body;
+    int? postId;
+    int? id;
+    String? name;
+    String? email;
+    String? body;
 
     factory Person.fromJson(Map<String, dynamic> json) => Person(
         postId: json["postId"],
