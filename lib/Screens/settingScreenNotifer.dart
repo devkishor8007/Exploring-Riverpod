@@ -4,16 +4,12 @@ import 'package:exploring_riverpod/utilities.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-final callChangeAllFont = ChangeNotifierProvider<ChangeAllFont>(
-  (ref) => ChangeAllFont(),
-);
-
-class SettingScreen extends StatelessWidget {
+class SettingNotifierScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Consumer(
       builder: (context, ref, child) {
-        final watchcallChangeAllFont = ref.watch(callChangeAllFont);
+        final watchcallChangeAllFont = ref.watch(changeNotifierProvider);
 
         final settingRiverpodName = ref.read(appsettingRiverpod);
 
@@ -22,20 +18,19 @@ class SettingScreen extends StatelessWidget {
           body: Column(
             children: [
               Text(
-                "Text Size is " +
-                    watchcallChangeAllFont.fontSize.toStringAsFixed(2),
+                "Text Size is " + watchcallChangeAllFont.toString(),
                 style: buildTextStyle(
                   context,
                   color: Colors.white,
                 ),
               ),
               Slider(
-                  max: 100.0,
-                  min: 15,
-                  value: watchcallChangeAllFont.fontSize,
-                  onChanged: (val) {
-                    watchcallChangeAllFont.increaseSize(val);
-                  }),
+                max: 100.0,
+                min: 15.0,
+                value: watchcallChangeAllFont,
+                onChanged: (val) =>
+                    ref.read(changeNotifierProvider.notifier).increaseSize(val),
+              ),
             ],
           ),
         );

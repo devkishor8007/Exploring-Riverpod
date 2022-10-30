@@ -1,24 +1,25 @@
-import 'package:exploring_riverpod/Screens/settingScreen.dart';
+// import 'package:exploring_riverpod/Screens/settingScreen.dart';
+import 'package:exploring_riverpod/Screens/settingScreenNotifer.dart';
 import 'package:exploring_riverpod/riverpod_apply.dart';
 import 'package:exploring_riverpod/route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_lorem/flutter_lorem.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-// ignore: must_be_immutable
 class TextSizeChangerScreen extends ConsumerWidget {
-  String text = lorem(paragraphs: 2, words: 40);
+  final String text = lorem(paragraphs: 2, words: 40);
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final size = MediaQuery.of(context).size;
-    var watchcallChangeAllFont = ref.watch(callChangeAllFont);
+    // final watchcallChangeAllFont = ref.watch(callChangeAllFont); // use this for change notifier
+    final watchcallChangeAllFont = ref.watch(changeNotifierProvider); // use this for state notifier
 
     final appname = ref.read(appNameRiverpod);
     final hopeRiverpodText = ref.read(hopeRiverpod);
     return SafeArea(
       child: Scaffold(
-        appBar: buildAppBar(appname, context),
+        appBar: buildAppBar(appname, context) as PreferredSizeWidget?,
         body: Padding(
           padding: EdgeInsets.symmetric(horizontal: size.width * 0.02),
           child: ListView(
@@ -26,7 +27,8 @@ class TextSizeChangerScreen extends ConsumerWidget {
               Text(
                 text,
                 style: TextStyle(
-                  fontSize: watchcallChangeAllFont.fontSize,
+                  // fontSize: watchcallChangeAllFont.fontSize, // use this for change notifier
+                  fontSize: watchcallChangeAllFont.toDouble(), // use this for state notifier
                   color: Colors.white,
                 ),
               ),
@@ -62,7 +64,8 @@ class TextSizeChangerScreen extends ConsumerWidget {
             onPressed: () {
               push(
                 context,
-                SettingScreen(),
+                // SettingScreen(), // use this for change notifier page
+                SettingNotifierScreen(), // use this for state notifier page
               );
             }),
       ],
