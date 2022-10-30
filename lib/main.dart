@@ -3,10 +3,10 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'screen/homeScreen.dart';
 
 void main() {
-  runApp(ProviderScope(child: Day10()));
+  runApp(ProviderScope(child: Day12()));
 }
 
-class Day10 extends ConsumerWidget {
+class Day12 extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     return MaterialApp(
